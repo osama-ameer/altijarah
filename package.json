@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/mohamedsamara/mern-ecommerce#readme",
   "dependencies": {
+    "cross-env": "^5.2.0",
     "autosuggest-highlight": "^3.1.1",
     "aws-sdk": "^2.799.0",
     "axios": "^0.21.1",
