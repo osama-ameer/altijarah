@@ -6,6 +6,7 @@ const Mongoose = require('mongoose');
 const Order = require('../../models/order');
 const Cart = require('../../models/cart');
 const Product = require('../../models/product');
+const Address = require('../../models/address');
 const auth = require('../../middleware/auth');
 const role = require('../../middleware/role');
 const mailgun = require('../../services/mailgun');
@@ -197,7 +198,7 @@ router.get('/:orderId', auth, async (req, res) => {
     let orderDoc = null;
 
     if (req.user.role === role.ROLES.Admin) {
-      orderDoc = await Order.findOne({ _id: orderId }).populate({
+      orderDoc = await Order.findOne({ _id: orderId }).populate([{
         path: 'cart',
         populate: {
           path: 'products.product',
@@ -205,25 +206,35 @@ router.get('/:orderId', auth, async (req, res) => {
             path: 'brand'
           }
         }
-      });
+      },
+      {
+        path: "user"
+      }
+    ]);
     } else {
-      const user = req.user._id;
-      orderDoc = await Order.findOne({ _id: orderId }).populate({
-        path: 'cart',
-        populate: {
-          path: 'products.product',
+        orderDoc = await Order.findOne({ _id: orderId }).populate([{
+          path: 'cart',
           populate: {
-            path: 'brand'
+            path: 'products.product',
+            populate: {
+              path: 'brand'
+            }
           }
-        }
-      });
+        }, {
+          path: "user"
+        }]);
     }
-
     if (!orderDoc || !orderDoc.cart) {
       return res.status(404).json({
         message: `Cannot find order with the id: ${orderId}.`
       });
     }
+    const user = req.user._id;
+
+    let addresses = await Address.find({user: orderDoc.user});
+    let address = addresses.filter(add => add.isDefault);
+    if(address.length == 0) address = addresses[0];
+    else address = address[0];
 
     let order = {
       _id: orderDoc._id,
@@ -231,7 +242,9 @@ router.get('/:orderId', auth, async (req, res) => {
       created: orderDoc.created,
       totalTax: 0,
       products: orderDoc?.cart?.products,
-      cartId: orderDoc.cart._id
+      cartId: orderDoc.cart._id,
+      address: address ? address : {},
+      orderUser: orderDoc.user
     };
 
     order = store.caculateTaxAmount(order);

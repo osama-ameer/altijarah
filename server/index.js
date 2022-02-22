@@ -77,9 +77,6 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
   app.use(compression());
   app.use(express.static(path.resolve(__dirname, '../dist')));
-  app.get("/service-worker.js", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "../dist/service-worker.js"));
-  });
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../dist/index.html'));
   });

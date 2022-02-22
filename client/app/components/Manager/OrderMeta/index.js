@@ -57,6 +57,22 @@ const OrderMeta = props => {
               )}`}</span>
             </Col>
           </Row>
+          <Row>
+            <Col xs='4'>
+              <p className='one-line-ellipsis'>Order Address</p>
+            </Col>
+            <Col xs='8'>
+              <span className='order-label one-line-ellipsis'>{` ${(order.address.address || "N/A")} ${(order.address.city || "")}`}</span>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs='4'>
+              <p className='one-line-ellipsis'>Customer Phone</p>
+            </Col>
+            <Col xs='8'>
+              <span className='order-label one-line-ellipsis'>{` ${(order.orderUser.phoneNumber || "N/A")}`}</span>
+            </Col>
+          </Row>
         </Col>
         <Col xs='12' md='4' className='text-left text-md-right'>
           {renderMetaAction()}
