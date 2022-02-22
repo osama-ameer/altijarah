@@ -1,7 +1,7 @@
 {
-  "name": "mern-ecommerce",
+  "name": "al-tijarah",
   "version": "1.0.0",
-  "description": "MERN Ecommerce",
+  "description": "Al Tijarah",
   "main": "server/index.js",
   "scripts": {
     "build": "npm run build:clean && cross-env NODE_ENV=production webpack --progress --colors",
@@ -12,10 +12,7 @@
     "postinstall": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mohamedsamara/mern-ecommerce.git"
-  },
+ 
   "keywords": [
     "node",
     "express",
@@ -25,12 +22,10 @@
     "redux-thunk",
     "webpack"
   ],
-  "author": "Mohamed Samara (https://github.com/mohamedsamara)",
+  "author": "Osama Ameer",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mohamedsamara/mern-ecommerce/issues"
-  },
-  "homepage": "https://github.com/mohamedsamara/mern-ecommerce#readme",
+  
+  
   "dependencies": {
     "cross-env": "^5.2.0",
     "webpack": "^4.46.0",
