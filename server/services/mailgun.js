@@ -19,6 +19,7 @@ let transporter = nodemailer.createTransport({
 });
 exports.sendEmail = async (email, type, host2, data) => {
   try{
+    // console.log(email, type, host2, data);
     const message = prepareTemplate(type, host2, data);
     let info = await transporter.sendMail({
       from: "MERN Store! <osamaameer@sparktechsolutions.org>", 

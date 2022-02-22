@@ -36,12 +36,12 @@ router.post('/add', auth, async (req, res) => {
     const newOrder = {
       _id: orderDoc._id,
       created: orderDoc.created,
-      user: orderDoc.user,
+      user: req.user,
       total: orderDoc.total,
       products: cartDoc.products
     };
 
-    await mailgun.sendEmail(order.user.email, 'order-confirmation', newOrder);
+    await mailgun.sendEmail(req.user.email, 'order-confirmation', undefined, newOrder);
 
     res.status(200).json({
       success: true,
