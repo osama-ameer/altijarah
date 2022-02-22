@@ -83,7 +83,13 @@
     "simple-line-icons": "^2.4.1",
     "socket.io": "^4.2.0",
     "socket.io-client": "^4.2.0",
-    "validatorjs": "^3.18.1"
+    "validatorjs": "^3.18.1",
+    "chalk": "^2.4.2",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-dev-server": "^3.11.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-merge": "^4.2.1",
+    "webpack-pwa-manifest": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
