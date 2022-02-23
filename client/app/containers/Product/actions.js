@@ -193,7 +193,7 @@ export const fetchProductRecommends = () => {
 
       dispatch({
         type: FETCH_RECOMMENDED_PRODUCT,
-        payload: response.data.products
+        payload: response.data
       });
     } catch (error) {
       handleError(error, dispatch);

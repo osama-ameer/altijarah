@@ -99,7 +99,8 @@ const productReducer = (state = initialState, action) => {
     case FETCH_RECOMMENDED_PRODUCT:
       return {
         ...state,
-        recommendedProducts: action.payload,
+        recommendedProducts: action.payload.products_userbased,
+        recommendedProductsItems: action.payload.products_itembased,
       };
     case SET_PRODUCTS_LOADING:
       return {
