@@ -10,8 +10,7 @@
     { "to": "/merchants", "name": "Merchants" },
     { "to": "/orders", "name": "Orders" },
     { "to": "/review", "name": "Reviews" },
-    { "to": "/wishlist", "name": "WishList" },
-    { "to": "/support", "name": "Support" }
+    { "to": "/wishlist", "name": "WishList" }
   ],
   "ROLE_MERCHANT": [
     { "to": "", "name": "Account Details" },
@@ -20,15 +19,13 @@
     { "to": "/brand", "name": "Brand" },
     { "to": "/product", "name": "Products" },
     { "to": "/orders", "name": "Orders" },
-    { "to": "/wishlist", "name": "WishList" },
-    { "to": "/support", "name": "Support" }
+    { "to": "/wishlist", "name": "WishList" }
   ],
   "ROLE_MEMBER": [
     { "to": "", "name": "Account Details" },
     { "to": "/security", "name": "Account Security" },
     { "to": "/address", "name": "Address" },
     { "to": "/orders", "name": "Orders" },
-    { "to": "/wishlist", "name": "WishList" },
-    { "to": "/support", "name": "Support" }
+    { "to": "/wishlist", "name": "WishList" }
   ]
 }

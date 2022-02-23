@@ -34,7 +34,7 @@ class Sell extends React.PureComponent {
     return (
       <div className='sell'>
         {isLoading && <LoadingIndicator />}
-        <h2>Become A MERN Store Seller!</h2>
+        <h2>Become Al Tijarah Seller!</h2>
         <hr />
         <Row>
           <Col xs='12' md='6' className='order-2 order-md-1'>
@@ -116,8 +116,8 @@ class Sell extends React.PureComponent {
             <Row>
               <Col xs='12' className='order-2 order-md-1 text-md-center mb-3'>
                 <div className='agreement-banner-text'>
-                  <h3>Would you like to sell your products on MERN Store!</h3>
-                  <h4>Grow your business with MERN Store</h4>
+                  <h3>Would you like to sell your products on Al Tijarah</h3>
+                  <h4>Grow your business with Al Tijarah</h4>
                   <b>Apply Today</b>
                 </div>
               </Col>

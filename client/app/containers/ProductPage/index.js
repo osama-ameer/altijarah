@@ -129,9 +129,9 @@ class ProductPage extends React.PureComponent {
                         }}
                       />
                     </div>
-                    <div className='my-4 item-share'>
+                    {/* <div className='my-4 item-share'>
                       <SocialShare product={product} />
-                    </div>
+                    </div> */}
                     <div className='item-actions'>
                       {itemsInCart.includes(product._id) ? (
                         <Button

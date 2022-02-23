@@ -34,6 +34,8 @@ import { BarsIcon } from '../../components/Common/Icon';
 import MiniBrand from '../../components/Store//MiniBrand';
 import Menu from '../NavigationMenu';
 import Cart from '../Cart';
+import logo from '../../logo.png'
+
 
 class Navigation extends React.PureComponent {
   componentDidMount() {
@@ -137,7 +139,7 @@ class Navigation extends React.PureComponent {
 
     return (
       <header className='header fixed-mobile-header'>
-        <div className='header-info'>
+        {/* <div className='header-info'>
           <Container>
             <Row>
               <Col md='4' className='text-center d-none d-md-block'>
@@ -158,7 +160,7 @@ class Navigation extends React.PureComponent {
               </Col>
             </Row>
           </Container>
-        </div>
+        </div> */}
         <Container>
           <Row className='align-items-center top-header'>
             <Col
@@ -179,7 +181,13 @@ class Navigation extends React.PureComponent {
                   />
                 )}
                 <Link to='/'>
-                  <h1 className='logo'>MERN Store</h1>
+                <div style={{display: "flex", flexDirection: 'row'}}>
+                  <img src={logo} alt='al tijarah logo' style={{height: '65px'}} />
+                  <h1 className='logo' style={{display: 'flex', 
+                   flexDirection:'column-reverse',
+                    justifyContent: 'center',
+                    }} >AL TIJARAH</h1>
+                  </div>
                 </Link>
               </div>
             </Col>

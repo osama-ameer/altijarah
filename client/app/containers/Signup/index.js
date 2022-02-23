@@ -109,7 +109,7 @@ class Signup extends React.PureComponent {
               md={{ size: '6', order: 2 }}
               className='mb-2 mb-md-0'
             >
-              <SignupProvider />
+              {/* <SignupProvider /> */}
             </Col>
           </Row>
           <hr />
