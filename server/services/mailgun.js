@@ -22,7 +22,7 @@ exports.sendEmail = async (email, type, host2, data) => {
     // console.log(email, type, host2, data);
     const message = prepareTemplate(type, host2, data);
     let info = await transporter.sendMail({
-      from: "Al Tijrah <osamaameer@sparktechsolutions.org>", 
+      from: "Al Tijarah <osamaameer@sparktechsolutions.org>", 
       to: email, 
       subject:  message.subject,
       text: message.text, 
