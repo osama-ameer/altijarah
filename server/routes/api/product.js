@@ -267,18 +267,26 @@ router.post('/list', async (req, res) => {
 router.get('/list/recommend', async (req, res) => {
   try {
     let recom_id = "A3OXHLG6DIBRW8";
-    if(req.query && req.query.recom_id) recom_id = req.query.recom_id;
-    let response = await axios.get(`https://item-recommendation-system.herokuapp.com/userBased/${recom_id}/`);
-    let recomend_products = [];
-    if (Array.isArray(response.data)) {
-      recomend_products = response.data.map(item => item[0]);
+    if (req.query && req.query.recom_id) recom_id = req.query.recom_id;
+    let response_userbased = await axios.get(`https://items-recommendation-system.herokuapp.com/userBased/${recom_id}/`);
+    let response_itembased = await axios.get(`https://items-recommendation-system.herokuapp.com/itemBased/${recom_id}/`);
+    let recomend_products_userbased = [];
+    let recomend_products_itembased = [];
+    if (Array.isArray(response_userbased.data)) {
+      recomend_products_userbased = response_userbased.data.map(item => item[0]);
     }
-    const products = await Product.find(
-      { 'sku': { $in: recomend_products } }
-      ).populate('brand');
-
+    if (Array.isArray(response_itembased.data)) {
+      recomend_products_itembased = response_itembased.data.map(item => item[0]);
+    }
+    const products_userbased = await Product.find(
+      { 'sku': { $in: recomend_products_userbased } }
+    ).populate('brand');
+    const products_itembased = await Product.find(
+      { 'sku': { $in: recomend_products_itembased } }
+    ).populate('brand');
     res.status(200).json({
-      products
+      products_userbased: products_userbased,
+      products_itembased: products_itembased,
     });
   } catch (error) {
     res.status(400).json({

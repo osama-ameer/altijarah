@@ -59,7 +59,8 @@ class ProductPage extends React.PureComponent {
       recommendedProducts,
       authenticated,
       updateWishlist,
-      user
+      user,
+      recommendedProductsItems
     } = this.props;
 
     return (
@@ -169,10 +170,21 @@ class ProductPage extends React.PureComponent {
               reviewChange={reviewChange}
               addReview={addProductReview}
             />
-            <h1>Recomended Products</h1>
+            <h1>Recomended products</h1>
             { (Array.isArray(recommendedProducts) && recommendedProducts.length > 0) ?
                 <ProductList
                 products={recommendedProducts}
+                authenticated={authenticated}
+                updateWishlist={updateWishlist}
+              />
+              :
+              <NotFound message='no product found.' />
+             }
+             <br/>
+             <h1>People also bought</h1>
+            { (Array.isArray(recommendedProductsItems) && recommendedProductsItems.length > 0) ?
+                <ProductList
+                products={recommendedProductsItems}
                 authenticated={authenticated}
                 updateWishlist={updateWishlist}
               />
@@ -200,6 +212,7 @@ const mapStateToProps = state => {
     reviewFormErrors: state.review.reviewFormErrors,
     itemsInCart: state.cart.itemsInCart,
     recommendedProducts: state.product.recommendedProducts,
+    recommendedProductsItems: state.product.recommendedProductsItems,
     authenticated: state.authentication.authenticated,
   };
 };
