@@ -1,6 +1,6 @@
 module.exports = {
   app: {
-    name: 'Mern Ecommerce',
+    name: 'Al Tijarah',
     apiURL: `${process.env.BASE_API_URL}`,
     serverURL: process.env.BASE_SERVER_URL,
     clientURL: process.env.BASE_CLIENT_URL
@@ -11,7 +11,7 @@ module.exports = {
   },
   jwt: {
     secret: process.env.JWT_SECRET,
-    tokenLife: '7d'
+    tokenLife: '10d'
   },
   mailchimp: {
     key: process.env.MAILCHIMP_KEY,
