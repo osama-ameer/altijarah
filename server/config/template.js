@@ -79,7 +79,7 @@ exports.contactEmail = () => {
 
 exports.merchantApplicationEmail = () => {
   const message = {
-    subject: 'Sell on MERN Store',
+    subject: 'Sell on Al Tijarah',
     text: `We received your request! Our team will contact you soon. \n\n`
   };
 
