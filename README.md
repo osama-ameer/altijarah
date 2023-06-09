@@ -1,3 +1,3 @@
 https://altijarah.herokuapp.com/
 
-A Full stack Multi vendor marketplace on mern stack technology.
+A Full stack Multi vendor marketplace on MERN stack technology.
